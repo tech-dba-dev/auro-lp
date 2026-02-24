@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp add:*)",
+      "Bash(claude mcp list:*)",
+      "Bash(claude mcp get:*)",
+      "mcp__figma-desktop__get_design_context",
+      "mcp__figma-desktop__get_screenshot",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(robocopy:*)",
+      "Bash(xcopy:*)",
+      "Bash(powershell -Command \"Copy-Item -Path ''temp-init\\\\*'' -Destination ''.'' -Recurse -Force; Copy-Item -Path ''temp-init\\\\.gitignore'' -Destination ''.'' -Force; Remove-Item -Path ''temp-init'' -Recurse -Force\")",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(npx --yes kill-port:*)",
+      "Bash(taskkill:*)",
+      "mcp__figma-desktop__get_metadata",
+      "WebFetch(domain:www.framer.com)",
+      "Bash(npm ls:*)",
+      "Bash(npx next build)",
+      "Bash(npx next build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}

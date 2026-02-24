@@ -67,13 +67,13 @@ export default function Footer() {
             className="flex flex-wrap"
             style={{ gap: "clamp(20px, 2.371vw, 45.52px)" }}
           >
-            <a href="#" className="hover:opacity-70 transition-opacity">
+            <a href="/legal" className="hover:opacity-70 transition-opacity">
               Privacy Policy
             </a>
-            <a href="#" className="hover:opacity-70 transition-opacity">
+            <a href="/legal" className="hover:opacity-70 transition-opacity">
               Terms of Service
             </a>
-            <a href="#" className="hover:opacity-70 transition-opacity">
+            <a href="/legal" className="hover:opacity-70 transition-opacity">
               Cookies Settings
             </a>
           </div>
