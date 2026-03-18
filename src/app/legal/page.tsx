@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -9,6 +9,14 @@ type Tab = "privacy" | "terms" | "delete";
 const validTabs: Tab[] = ["privacy", "terms", "delete"];
 
 export default function LegalPage() {
+  return (
+    <Suspense>
+      <LegalPageContent />
+    </Suspense>
+  );
+}
+
+function LegalPageContent() {
   const searchParams = useSearchParams();
   const tabParam = searchParams.get("tab");
   const initialTab = validTabs.includes(tabParam as Tab) ? (tabParam as Tab) : "privacy";
