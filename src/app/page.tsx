@@ -9,30 +9,55 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative bg-white-smoke">
-      {/* Background decorations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-0">
+    <main className="relative bg-white-smoke overflow-x-hidden">
+      {/* Background decorations — camada de fundo com eclipse, planet e gradient */}
+      <div
+        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        style={{ zIndex: 0 }}
+      >
+        {/* Eclipse — grande elipse azul/teal, posicionada à esquerda */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/eclipse.svg"
           alt=""
-          className="absolute top-[1536px] left-[-672px] w-[3299px] h-[4465px]"
+          style={{
+            position: "absolute",
+            top: "clamp(800px, 80vw, 1536px)",
+            left: "clamp(-400px, -35vw, -672px)",
+            width: "clamp(1600px, 171.8vw, 3299px)",
+            height: "clamp(2200px, 232.6vw, 4465px)",
+          }}
         />
+        {/* Planet — círculo com textura, posicionado à direita */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/planet.svg"
           alt=""
-          className="absolute top-[1311px] left-[643px] w-[2085px] h-[2085px]"
+          style={{
+            position: "absolute",
+            top: "clamp(680px, 68.3vw, 1311px)",
+            left: "clamp(200px, 33.5vw, 643px)",
+            width: "clamp(1000px, 108.6vw, 2085px)",
+            height: "clamp(1000px, 108.6vw, 2085px)",
+          }}
         />
+        {/* Gradient — no fundo da página, o footer fica por cima */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/gradient.svg"
           alt=""
-          className="absolute top-[6531px] left-[-368px] w-[2850px] h-[2428px]"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: "clamp(-200px, -19.2vw, -368px)",
+            width: "clamp(1400px, 148.4vw, 2850px)",
+            height: "clamp(1200px, 126.5vw, 2428px)",
+          }}
         />
       </div>
 
-      <div className="relative z-10">
+      {/* Conteúdo — todas as seções vêm por cima do background */}
+      <div className="relative" style={{ zIndex: 1 }}>
         <HeroSection />
         <DatingTodaySection />
         <HowAuroSection />
