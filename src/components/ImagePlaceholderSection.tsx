@@ -1,7 +1,7 @@
 export default function ImagePlaceholderSection() {
   return (
     <section
-      className="relative flex items-center justify-center bg-[#808080]"
+      className="relative flex items-center justify-center"
       style={{
         height: "clamp(400px, 56.25vw, 1080px)",
         borderRadius: "clamp(24px, 2.865vw, 55px)",

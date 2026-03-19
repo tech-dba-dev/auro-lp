@@ -7,84 +7,109 @@ export default function DarkCTASection() {
     <section
       className="relative overflow-hidden"
       style={{
-        background:
-          "linear-gradient(180deg, #8DAFB3 0%, #9AB8BA 20%, #A0BDB9 40%, #92B3AF 60%, #84A9A6 80%, #7BA19F 100%)",
+        background: "linear-gradient(180deg, #79C3AE 0%, #3C4D47 97%)",
+        opacity: 0.86,
         padding:
-          "clamp(100px, 14.896vw, 286px) clamp(24px, 5.469vw, 105px) clamp(120px, 17.083vw, 328px)",
+          "clamp(100px, 14.896vw, 286px) clamp(24px, 5.469vw, 105px) clamp(200px, 22vw, 422px)",
       }}
     >
+      {/* Noise overlay */}
+      <svg style={{ position: "absolute", width: 0, height: 0 }}>
+        <filter id="noise">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.55"
+            numOctaves="3"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.25" />
+          </feComponentTransfer>
+          <feBlend in="SourceGraphic" mode="normal" />
+        </filter>
+      </svg>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          filter: "url(#noise)",
+          backgroundColor: "transparent",
+          mixBlendMode: "overlay",
+        }}
+      />
       {/* Decorative stars */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Star 12 — top-left large (184px at 1414w) */}
+        {/* Top-left — large */}
         <img
           src="/images/star1.svg"
           alt=""
           className="absolute mix-blend-color-dodge"
           style={{
-            width: "clamp(92px, 13.014vw, 184px)",
-            height: "clamp(92px, 13.014vw, 184px)",
-            left: "-5.23%",
-            top: "5.06%",
+            width: "clamp(80px, 10.417vw, 200px)",
+            height: "clamp(80px, 10.417vw, 200px)",
+            left: "3%",
+            top: "8%",
           }}
         />
-        {/* Star 21 — top-left small (85px at 1414w) */}
+        {/* Top-left — small */}
         <img
           src="/images/star5.svg"
           alt=""
           className="absolute mix-blend-color-dodge"
           style={{
-            width: "clamp(44px, 6.012vw, 85px)",
-            height: "clamp(44px, 6.012vw, 85px)",
-            left: "3.11%",
-            top: "0",
+            width: "clamp(40px, 5.208vw, 100px)",
+            height: "clamp(40px, 5.208vw, 100px)",
+            left: "14%",
+            top: "5%",
           }}
         />
-        {/* Star 18 — bottom-left (108px at 1414w) */}
-        <img
-          src="/images/star3.svg"
-          alt=""
-          className="absolute mix-blend-color-dodge"
-          style={{
-            width: "clamp(54px, 7.639vw, 108px)",
-            height: "clamp(54px, 7.639vw, 108px)",
-            left: "-1.48%",
-            bottom: "6.28%",
-          }}
-        />
-        {/* Star 17 — top-right large (143px at 1414w) */}
+        {/* Top-right — large */}
         <img
           src="/images/star4.svg"
           alt=""
           className="absolute mix-blend-color-dodge"
           style={{
-            width: "clamp(72px, 10.113vw, 143px)",
-            height: "clamp(72px, 10.113vw, 143px)",
-            right: "-2.4%",
-            top: "15.88%",
+            width: "clamp(70px, 9.375vw, 180px)",
+            height: "clamp(70px, 9.375vw, 180px)",
+            right: "2%",
+            top: "6%",
           }}
         />
-        {/* Star 20 — middle-right (85px at 1414w) */}
+        {/* Mid-right — small */}
         <img
           src="/images/star5.svg"
           alt=""
           className="absolute mix-blend-color-dodge"
           style={{
-            width: "clamp(44px, 6.012vw, 85px)",
-            height: "clamp(44px, 6.012vw, 85px)",
-            right: "3.25%",
-            top: "36.13%",
+            width: "clamp(40px, 5.208vw, 100px)",
+            height: "clamp(40px, 5.208vw, 100px)",
+            right: "6%",
+            top: "38%",
           }}
         />
-        {/* Star 19 — bottom-right (92px at 1414w) */}
+        {/* Bottom-left — medium */}
+        <img
+          src="/images/star3.svg"
+          alt=""
+          className="absolute mix-blend-color-dodge"
+          style={{
+            width: "clamp(50px, 6.771vw, 130px)",
+            height: "clamp(50px, 6.771vw, 130px)",
+            left: "5%",
+            bottom: "12%",
+          }}
+        />
+        {/* Bottom-right — medium */}
         <img
           src="/images/star2.svg"
           alt=""
           className="absolute mix-blend-color-dodge"
           style={{
-            width: "clamp(46px, 6.507vw, 92px)",
-            height: "clamp(46px, 6.507vw, 92px)",
-            right: "4.67%",
-            bottom: "5.58%",
+            width: "clamp(50px, 6.771vw, 130px)",
+            height: "clamp(50px, 6.771vw, 130px)",
+            right: "5%",
+            bottom: "10%",
           }}
         />
       </div>
@@ -97,27 +122,34 @@ export default function DarkCTASection() {
           maxWidth: "1368px",
         }}
       >
-        <div>
-          <h2
-            className="text-white-smoke font-medium uppercase"
-            style={{
-              fontSize: "clamp(24px, 2.188vw, 42px)",
-              lineHeight: "clamp(36px, 3.75vw, 72px)",
-            }}
-          >
-            You&apos;ve seen how AURO approaches connection.
-          </h2>
-          <p
-            className="text-white-smoke"
-            style={{
-              fontSize: "clamp(20px, 1.667vw, 32px)",
-              lineHeight: "clamp(30px, 3.75vw, 72px)",
-            }}
-          >
-            Join early access and experience it for yourself
-          </p>
-        </div>
-        <StoreButtons />
+        <h2
+          className="text-white-smoke font-sagire"
+          style={{
+            fontSize: "clamp(32px, 3.802vw, 73px)",
+            lineHeight: "clamp(40px, 4.688vw, 90px)",
+            fontWeight: 400,
+          }}
+        >
+          The relationship doesn&apos;t start at the match.
+          <br />
+          And it doesn&apos;t end there either.
+        </h2>
+        <button
+          className="font-outfit"
+          style={{
+            backgroundColor: "#3C4D47",
+            color: "#F4F3F1",
+            width: "clamp(180px, 13.646vw, 262px)",
+            height: "clamp(48px, 3.958vw, 76px)",
+            borderRadius: "9999px",
+            fontSize: "clamp(18px, 1.51vw, 29px)",
+            fontWeight: 400,
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          Join the waitlist
+        </button>
       </div>
     </section>
   );

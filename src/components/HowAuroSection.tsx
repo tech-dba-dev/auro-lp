@@ -16,28 +16,40 @@ export default function HowAuroSection() {
           maxWidth: "1710px",
         }}
       >
-        {/* Mobile text */}
+        {/* Background image */}
+        <img
+          src="/images/Frame 498.webp"
+          alt=""
+          draggable={false}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+          style={{ userSelect: "none" }}
+        />
+
+        {/* Mobile layout */}
         <div
-          className="lg:hidden flex flex-col"
+          className="relative z-10 lg:hidden flex flex-col"
           style={{
-            padding: "clamp(32px, 8vw, 48px) clamp(24px, 6vw, 40px)",
-            gap: "12px",
+            padding: "clamp(32px, 8vw, 48px) clamp(24px, 6vw, 40px) 0",
+            gap: "clamp(12px, 3vw, 20px)",
           }}
         >
           <h2
-            className="text-granite font-medium uppercase"
+            className="font-sagire"
             style={{
               fontSize: "clamp(20px, 5vw, 32px)",
               lineHeight: 1.3,
+              color: "#3C4D47",
+              fontWeight: 600,
+              WebkitTextStroke: "1px #436D66",
             }}
           >
-            How Auro addresses this
+            How AURO addresses this
           </h2>
           <div
-            className="text-granite"
             style={{
               fontSize: "clamp(14px, 3.8vw, 20px)",
               lineHeight: 1.5,
+              color: "#2F2F2F",
             }}
           >
             <p style={{ marginBottom: "12px" }}>
@@ -52,85 +64,76 @@ export default function HowAuroSection() {
               allowing people to connect with more awareness and less noise.
             </p>
           </div>
+          {/* Join the waitlist button */}
+          <button
+            className="font-outfit"
+            style={{
+              backgroundColor: "#3C4D47",
+              color: "#F4F3F1",
+              height: "clamp(44px, 10vw, 60px)",
+              paddingInline: "clamp(20px, 5vw, 32px)",
+              borderRadius: "9999px",
+              fontSize: "clamp(16px, 4vw, 22px)",
+              fontWeight: 400,
+              border: "none",
+              cursor: "pointer",
+              alignSelf: "flex-start",
+            }}
+          >
+            Join the waitlist
+          </button>
 
-          {/* Mobile phone mockup */}
-          <div className="flex justify-center" style={{ marginTop: "8px", paddingBottom: "clamp(24px, 6vw, 40px)" }}>
-            <div className="relative" style={{ width: "60%" }}>
-              {/* Phone frame */}
-              <div
-                className="bg-granite relative overflow-hidden"
-                style={{
-                  width: "100%",
-                  aspectRatio: "558 / 1174",
-                  borderRadius: "clamp(24px, 6vw, 40px)",
-                }}
-              >
-                <div
-                  className="absolute overflow-hidden bg-white-smoke"
-                  style={{
-                    inset: "4px",
-                    borderRadius: "clamp(20px, 5.5vw, 36px)",
-                  }}
-                >
-                  <img
-                    src="/images/phone-screen-auro.png"
-                    alt="Auro app - You matched!"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-                {/* Notch */}
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 bg-black rounded-full"
-                  style={{ top: "2.2%", width: "30%", height: "3.5%" }}
-                />
-                {/* Home indicator */}
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 bg-granite rounded-full"
-                  style={{ bottom: "1%", width: "35%", height: "4px" }}
-                />
-              </div>
-              {/* Side buttons */}
-              <div className="absolute pointer-events-none" style={{ top: "18%", left: "0", width: "100%" }}>
-                <div className="absolute bg-granite rounded-l-[1px]" style={{ left: "-2px", top: "0", width: "2px", height: "14px" }} />
-                <div className="absolute bg-granite rounded-l-[1px]" style={{ left: "-2px", top: "20px", width: "2px", height: "22px" }} />
-                <div className="absolute bg-granite rounded-l-[1px]" style={{ left: "-2px", top: "48px", width: "2px", height: "22px" }} />
-                <div className="absolute bg-granite rounded-r-[1px]" style={{ right: "-2px", top: "26px", width: "2px", height: "28px" }} />
-              </div>
-            </div>
+          {/* Mobile phone image — colado embaixo, overflow visível */}
+          <div className="flex justify-center" style={{ marginTop: "16px" }}>
+            <img
+              src="/images/iPhone 16 Pro Max.png"
+              alt="Auro app - You matched!"
+              draggable={false}
+              className="pointer-events-none select-none"
+              style={{
+                width: "50%",
+                maxWidth: "240px",
+                height: "auto",
+                userSelect: "none",
+              }}
+            />
           </div>
         </div>
 
-        {/* Desktop: sized to fit the full phone */}
+        {/* Desktop layout */}
         <div
-          className="hidden lg:block"
+          className="relative z-10 hidden lg:block"
           style={{ height: "clamp(520px, 46.875vw, 900px)" }}
         >
-          {/* Desktop text — absolutely positioned */}
+          {/* Desktop text */}
           <div
-            className="absolute z-10 flex flex-col justify-center"
+            className="absolute flex flex-col justify-center"
             style={{
               left: "clamp(32px, 6.771vw, 130px)",
               top: "0",
               bottom: "0",
-              gap: "clamp(10px, 0.781vw, 15px)",
+              gap: "clamp(24px, 2.083vw, 40px)",
             }}
           >
             <h2
-              className="text-granite font-medium uppercase"
+              className="font-sagire"
               style={{
-                fontSize: "clamp(24px, 2.083vw, 40px)",
-                lineHeight: "clamp(32px, 2.865vw, 55px)",
+                fontSize: "clamp(24px, 1.979vw, 38px)",
+                lineHeight: 1.3,
                 maxWidth: "clamp(320px, 31.042vw, 596px)",
+                color: "#3C4D47",
+                fontWeight: 600,
+                WebkitTextStroke: "1px #436D66",
               }}
             >
-              How Auro addresses this
+              How AURO addresses this
             </h2>
             <div
-              className="text-granite"
               style={{
                 fontSize: "clamp(16px, 1.484vw, 28.49px)",
                 lineHeight: "clamp(24px, 2.083vw, 40px)",
                 maxWidth: "clamp(340px, 37.76vw, 725px)",
+                color: "#2F2F2F",
               }}
             >
               <p style={{ marginBottom: "clamp(16px, 1.25vw, 24px)" }}>
@@ -146,109 +149,40 @@ export default function HowAuroSection() {
                 less noise.
               </p>
             </div>
+            {/* Join the waitlist button */}
+            <button
+              className="font-outfit"
+              style={{
+                backgroundColor: "#3C4D47",
+                color: "#F4F3F1",
+                height: "clamp(48px, 4.115vw, 79px)",
+                paddingInline: "clamp(20px, 1.823vw, 35px)",
+                borderRadius: "9999px",
+                fontSize: "clamp(16px, 1.302vw, 25px)",
+                fontWeight: 600,
+                border: "none",
+                cursor: "pointer",
+                alignSelf: "flex-start",
+              }}
+            >
+              Join the waitlist
+            </button>
           </div>
 
-          {/* iPhone mockup — fully visible inside the card */}
-          <div
-            className="absolute"
+          {/* iPhone image */}
+          <img
+            src="/images/iPhone 16 Pro Max.png"
+            alt="Auro app - You matched!"
+            draggable={false}
+            className="absolute pointer-events-none select-none"
             style={{
               right: "clamp(40px, 7.24vw, 139px)",
-              top: "clamp(24px, 2.083vw, 40px)",
-              width: "clamp(200px, 19.792vw, 380px)",
+              bottom: "0",
+              width: "clamp(250px, 29.3vw, 562px)",
+              height: "auto",
+              userSelect: "none",
             }}
-          >
-            {/* Phone frame */}
-            <div
-              className="bg-granite relative overflow-hidden"
-              style={{
-                width: "100%",
-                aspectRatio: "558 / 1174",
-                borderRadius: "clamp(32px, 3.125vw, 60px)",
-              }}
-            >
-              {/* Screen content */}
-              <div
-                className="absolute overflow-hidden bg-white-smoke"
-                style={{
-                  inset: "clamp(5px, 0.573vw, 11px)",
-                  borderRadius: "clamp(28px, 2.708vw, 52px)",
-                }}
-              >
-                <img
-                  src="/images/phone-screen-auro.png"
-                  alt="Auro app - You matched!"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-              {/* Notch */}
-              <div
-                className="absolute left-1/2 -translate-x-1/2 bg-black rounded-full"
-                style={{
-                  top: "clamp(12px, 1.362vw, 26.15px)",
-                  width: "clamp(86px, 8.571vw, 164.55px)",
-                  height: "clamp(26px, 2.556vw, 49.08px)",
-                }}
-              />
-              {/* Home indicator */}
-              <div
-                className="absolute left-1/2 -translate-x-1/2 bg-granite rounded-full"
-                style={{
-                  bottom: "clamp(6px, 0.573vw, 11px)",
-                  width: "clamp(100px, 10.163vw, 195.13px)",
-                  height: "clamp(3px, 0.272vw, 5.23px)",
-                }}
-              />
-            </div>
-
-            {/* Side buttons */}
-            <div
-              className="absolute pointer-events-none"
-              style={{
-                top: "clamp(60px, 6.25vw, 120px)",
-                left: "0",
-                width: "100%",
-              }}
-            >
-              {/* Left buttons */}
-              <div
-                className="absolute bg-granite rounded-l-[2px]"
-                style={{
-                  left: "-3px",
-                  top: "0",
-                  width: "4px",
-                  height: "clamp(24px, 2.344vw, 45px)",
-                }}
-              />
-              <div
-                className="absolute bg-granite rounded-l-[2px]"
-                style={{
-                  left: "-3px",
-                  top: "clamp(40px, 4.167vw, 80px)",
-                  width: "4px",
-                  height: "clamp(38px, 3.646vw, 70px)",
-                }}
-              />
-              <div
-                className="absolute bg-granite rounded-l-[2px]"
-                style={{
-                  left: "-3px",
-                  top: "clamp(90px, 8.854vw, 170px)",
-                  width: "4px",
-                  height: "clamp(38px, 3.646vw, 70px)",
-                }}
-              />
-              {/* Right button (power) */}
-              <div
-                className="absolute bg-granite rounded-r-[2px]"
-                style={{
-                  right: "-3px",
-                  top: "clamp(56px, 5.729vw, 110px)",
-                  width: "4px",
-                  height: "clamp(48px, 4.688vw, 90px)",
-                }}
-              />
-            </div>
-          </div>
+          />
         </div>
       </div>
     </section>

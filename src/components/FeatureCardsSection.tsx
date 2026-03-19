@@ -2,39 +2,22 @@
 
 const features = [
   {
-    icon: "/images/icon-matching.svg",
+    icon: "/images/Frame-447.webp",
     title: "Intentional\nMatching",
     description:
-      "AURO prioritizes alignment and shared intention over volume. Matches are designed to feel relevant, not endless.",
-    // Figma: 138w x 101h (displayed landscape). SVG is portrait, needs rotate(90deg).
-    // img gets SVG natural size (w=101, h=138), CSS rotates visually to 138x101
-    imgW: 101,
-    imgH: 138,
-    displayH: 101, // visual height after rotation (for container)
-    transform: "rotate(90deg)",
+      "Less noise. More signal. Matches based on how you actually relate, not just who's nearby.",
   },
   {
-    icon: "/images/icon-awareness.svg",
+    icon: "/images/Frame-454.webp",
     title: "Guided\nSelf-Awareness",
     description:
-      "Through psychology-informed insights and optional symbolic frameworks, AURO helps users better understand themselves and how they relate to others, without labels or pressure.",
-    // Figma: 179.33w x 78.3h (displayed landscape). SVG is portrait, needs rotate(90deg).
-    // img gets SVG natural size (w=78, h=179), CSS rotates visually to 179x78
-    imgW: 78,
-    imgH: 179,
-    displayH: 78, // visual height after rotation
-    transform: "rotate(90deg)",
+      "Prompts and reflections that help you understand your patterns, how you communicate, what you need, how you show up under pressure.",
   },
   {
-    icon: "/images/icon-modes.svg",
+    icon: "/images/Frame-491.webp",
     title: "Relationship\nModes",
     description:
-      "Dating and relationships are not static. AURO adapts to different stages, from dating to partnership, with experiences that evolve alongside you, for you.",
-    // Figma: 105.88w x 105.15h (square). No rotation needed.
-    imgW: 106,
-    imgH: 106,
-    displayH: 106,
-    transform: undefined,
+      "One app for the whole relationship. Whether you're still finding each other or already building something, AURO moves with you.",
   },
 ];
 
@@ -46,22 +29,6 @@ export default function FeatureCardsSection() {
         padding: "clamp(48px, 5.208vw, 100px) clamp(20px, 5.469vw, 105px)",
       }}
     >
-      {/* Background gradient blur */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          left: "50%",
-          top: "55%",
-          transform: "translate(-50%, -50%)",
-          width: "clamp(700px, 80vw, 1600px)",
-          height: "clamp(600px, 50vw, 1000px)",
-          borderRadius: "4465px",
-          background:
-            "linear-gradient(180deg, #85C6DD 2.88%, rgba(106, 161, 180, 0.30) 100%)",
-          filter: "blur(347px)",
-          opacity: 0.6,
-        }}
-      />
       <div
         className="relative z-10 mx-auto flex flex-col items-center"
         style={{
@@ -75,10 +42,12 @@ export default function FeatureCardsSection() {
           style={{ gap: "clamp(10px, 0.781vw, 15px)" }}
         >
           <h2
-            className="text-granite font-medium uppercase"
+            className="font-sagire text-granite"
             style={{
               fontSize: "clamp(24px, 2.188vw, 42px)",
               lineHeight: "clamp(32px, 2.865vw, 55px)",
+              fontWeight: 600,
+              WebkitTextStroke: "1px #436D66",
             }}
           >
             Built to support how people actually relate
@@ -92,15 +61,13 @@ export default function FeatureCardsSection() {
             }}
           >
             <p style={{ marginBottom: "clamp(16px, 1.25vw, 24px)" }}>
-              AURO exists to help people approach connection with more clarity,
-              intention, and self-understanding. Not just to meet someone, but to
-              navigate relationships over time, across different stages and
-              needs.
+              AURO is designed to support connection with more awareness and
+              context. Not just to help people meet, but to help them understand
+              how they relate, over time and across different stages.
             </p>
             <p>
-              It&apos;s designed to stay relevant beyond the first match,
-              supporting reflection, alignment, and growth as relationships
-              evolve.
+              It&apos;s built to remain relevant beyond the first match,
+              supporting reflection and growth as relationships evolve.
             </p>
           </div>
         </div>
@@ -116,33 +83,34 @@ export default function FeatureCardsSection() {
               className="bg-white-smoke flex flex-col items-center text-center flex-1"
               style={{
                 borderRadius: "clamp(24px, 2.188vw, 42px)",
-                padding: "clamp(32px, 3.021vw, 58px) clamp(20px, 1.719vw, 33px)",
-                minHeight: "clamp(350px, 28.646vw, 550px)",
+                padding:
+                  "clamp(32px, 3.021vw, 58px) clamp(20px, 1.719vw, 33px)",
+                minHeight: undefined,
               }}
             >
               <div
                 className="flex items-center justify-center"
                 style={{
-                  height: `clamp(${Math.round(feature.displayH * 0.55)}px, ${((feature.displayH / 1920) * 100).toFixed(3)}vw, ${feature.displayH}px)`,
-                  width: feature.transform ? `clamp(${Math.round(feature.imgH * 0.55)}px, ${((feature.imgH / 1920) * 100).toFixed(3)}vw, ${feature.imgH}px)` : undefined,
                   marginBottom: "clamp(12px, 1.042vw, 20px)",
                 }}
               >
                 <img
                   src={feature.icon}
                   alt=""
+                  draggable={false}
+                  className="pointer-events-none select-none"
                   style={{
-                    width: `clamp(${Math.round(feature.imgW * 0.55)}px, ${((feature.imgW / 1920) * 100).toFixed(3)}vw, ${feature.imgW}px)`,
-                    height: `clamp(${Math.round(feature.imgH * 0.55)}px, ${((feature.imgH / 1920) * 100).toFixed(3)}vw, ${feature.imgH}px)`,
-                    ...(feature.transform ? { transform: feature.transform } : {}),
+                    height: "clamp(50px, 5.5vw, 106px)",
+                    width: "auto",
+                    userSelect: "none",
                   }}
                 />
               </div>
               <h3
                 className="font-sagire text-granite whitespace-pre-line"
                 style={{
-                  fontSize: "clamp(28px, 2.466vw, 47.35px)",
-                  lineHeight: "clamp(34px, 2.904vw, 55.75px)",
+                  fontSize: "clamp(28px, 2.448vw, 47px)",
+                  lineHeight: "clamp(34px, 2.865vw, 55px)",
                   marginBottom: "clamp(12px, 1.042vw, 20px)",
                   WebkitTextStroke: "0.89px #3C4D47",
                 }}

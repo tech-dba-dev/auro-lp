@@ -6,8 +6,6 @@ export default function DatingTodaySection() {
       className="relative overflow-hidden"
       style={{
         padding: "clamp(80px, 7.292vw, 140px) clamp(24px, 4.167vw, 80px)",
-        background:
-          "linear-gradient(135deg, rgba(118,169,185,0.25) 0%, rgba(118,169,185,0.12) 35%, rgba(244,243,241,0.4) 70%, rgba(244,243,241,0.15) 100%)",
       }}
     >
       <div
@@ -36,14 +34,17 @@ export default function DatingTodaySection() {
           }}
         >
           <h2
-            className="text-granite font-medium uppercase"
+            className="font-sagire text-granite"
             style={{
-              fontSize: "clamp(24px, 2.188vw, 42px)",
-              lineHeight: "clamp(32px, 2.865vw, 55px)",
+              fontSize: "clamp(24px, 1.979vw, 38px)",
+              lineHeight: "clamp(36px, 2.865vw, 55px)",
+              letterSpacing: "0.04em",
               maxWidth: "clamp(300px, 33.073vw, 635px)",
+              fontWeight: 600,
+              WebkitTextStroke: "1px #436D66",
             }}
           >
-            Dating today optimizes for activity, not alignment
+            Most apps help you find someone. None of them help you keep showing up.
           </h2>
           <div
             className="text-granite"
@@ -52,16 +53,11 @@ export default function DatingTodaySection() {
               lineHeight: "clamp(24px, 2.083vw, 40px)",
             }}
           >
-            <p style={{ marginBottom: "clamp(16px, 1.25vw, 24px)" }}>
-              Most modern dating platforms are designed to maximise speed,
-              volume, and constant interaction. While this increases matches, it
-              often reduces clarity, shared intention, and long-term
-              compatibility between people.
-            </p>
             <p>
-              Over time, this leads to decision fatigue, misaligned
-              expectations, and a growing sense of disengagement from dating
-              altogether.
+              Dating platforms prioritise volume. That&apos;s one problem. The bigger
+              one is what happens after, when life gets full, communication gets
+              hard, and no one taught you how to stay intentional about someone
+              you already chose.
             </p>
           </div>
         </div>

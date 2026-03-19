@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 
+import StoreButtons from "./StoreButtons";
+
 export default function Footer() {
   return (
     <footer
       className="bg-white-smoke relative z-20"
       style={{
         borderRadius: "clamp(40px, 4.375vw, 84px) clamp(40px, 4.375vw, 84px) 0 0",
-        marginTop: "clamp(-40px, -4.375vw, -84px)",
+        marginTop: "clamp(-100px, -10vw, -192px)",
       }}
     >
       <div
@@ -17,8 +19,8 @@ export default function Footer() {
             "clamp(48px, 5vw, 96px) clamp(24px, 1.779vw, 34.14px) clamp(48px, 5vw, 96px)",
         }}
       >
-        {/* Logo + Name */}
-        <div className="flex items-center justify-between">
+        {/* Logo + Name + Store buttons */}
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between" style={{ gap: "clamp(24px, 2vw, 40px)" }}>
           <div
             className="flex items-center"
             style={{ gap: "clamp(20px, 2.083vw, 40px)" }}
@@ -42,6 +44,7 @@ export default function Footer() {
               <p>social media</p>
             </div>
           </div>
+          <StoreButtons />
         </div>
 
         {/* Separator */}

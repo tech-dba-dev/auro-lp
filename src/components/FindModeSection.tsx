@@ -56,20 +56,48 @@ export default function FindModeSection() {
   const isDating = activeTab === "dating";
 
   return (
+    <div className="relative">
     <section
       className="relative overflow-hidden"
       style={{
         borderRadius: "clamp(24px, 2.865vw, 55px)",
         padding: "clamp(40px, 3.906vw, 75px) clamp(24px, 3.958vw, 76px) clamp(60px, 5.208vw, 100px)",
         background: isDating
-          ? "linear-gradient(180deg, rgb(64, 152, 190) 23%, rgb(63, 163, 194) 45%, rgb(63, 163, 194) 69%, rgb(48, 163, 201) 82%, rgb(48, 163, 201) 96%)"
+          ? "linear-gradient(180deg, #4098BE 1%, #3FA3C2 30%, #3FA3C2 61%, #30A3C9 77%, #30A3C9 95%)"
           : "linear-gradient(180deg, rgb(153, 66, 100) 23%, rgb(185, 84, 123) 45%, rgb(230, 106, 154) 69%, rgb(248, 113, 165) 82%, rgb(233, 78, 138) 100%)",
         transition: "background 0.5s ease",
       }}
     >
+      {/* Noise overlay */}
+      <svg style={{ position: "absolute", width: 0, height: 0 }}>
+        <filter id="noise-find">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.8"
+            numOctaves="3"
+            stitchTiles="stitch"
+          />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncA type="linear" slope="0.15" />
+          </feComponentTransfer>
+          <feBlend in="SourceGraphic" mode="normal" />
+        </filter>
+      </svg>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          filter: "url(#noise-find)",
+          backgroundColor: "transparent",
+          mixBlendMode: "overlay",
+          borderRadius: "inherit",
+        }}
+      />
+
       {/* Header */}
       <div
-        className="flex flex-col items-center"
+        className="relative z-10 flex flex-col items-center"
         style={{ gap: "clamp(8px, 0.677vw, 13px)" }}
       >
         {/* Title */}
@@ -82,16 +110,20 @@ export default function FindModeSection() {
         >
           Find the{" "}
           <span
-            className="font-sagire inline-flex items-center justify-center lowercase"
+            className="font-sagire inline-flex items-center justify-center lowercase relative overflow-hidden"
             style={{
-              background: isDating ? "#76A9B9" : "#FBE1EC",
+              background: isDating ? "#557A86" : "#FBE1EC",
               color: isDating ? "#F4F3F1" : "#994264",
-              borderRadius: "clamp(24px, 2.469vw, 47.39px)",
-              padding: "clamp(2px, 0.215vw, 4.12px) clamp(8px, 0.751vw, 14.42px)",
-              fontSize: "clamp(20px, 1.717vw, 32.97px)",
-              lineHeight: "clamp(24px, 2.147vw, 41.21px)",
-              fontWeight: 300,
-              transition: "background 0.3s ease, color 0.3s ease",
+              borderRadius: "clamp(16px, 1.667vw, 32px)",
+              width: "clamp(80px, 7.083vw, 136px)",
+              height: "clamp(30px, 2.656vw, 51px)",
+              fontSize: "clamp(18px, 1.719vw, 33px)",
+              lineHeight: 1,
+              fontWeight: 400,
+              transition: "background 0.3s ease",
+              verticalAlign: "text-top",
+              position: "relative",
+              top: "1px",
             }}
           >
             mode
@@ -99,7 +131,7 @@ export default function FindModeSection() {
           that works for you
         </h2>
 
-        {/* Tabs */}
+        {/* Toggle */}
         <div
           className="bg-white-smoke flex items-center"
           style={{
@@ -111,109 +143,197 @@ export default function FindModeSection() {
         >
           <button
             onClick={() => {
-              setActiveTab("dating");
-              setExpanded(false);
-            }}
-            className="flex-1 flex items-center justify-center font-medium transition-all duration-300"
-            style={{
-              height: "100%",
-              borderRadius: isDating ? "clamp(36px, 3.594vw, 69px)" : "clamp(8px, 0.625vw, 12px)",
-              background: isDating ? "#76A9B9" : "transparent",
-              color: isDating ? "#F4F3F1" : "#994264",
-              fontSize: "clamp(16px, 1.563vw, 30px)",
-              lineHeight: "clamp(24px, 2.188vw, 42px)",
-              boxShadow: isDating
-                ? "0px 15px 22.5px rgba(0,0,0,0.1), 0px 6px 9px rgba(0,0,0,0.1)"
-                : "none",
-            }}
-          >
-            Dating
-          </button>
-          <button
-            onClick={() => {
               setActiveTab("couple");
               setExpanded(false);
             }}
-            className="flex-1 flex items-center justify-center font-medium transition-all duration-300"
+            className="relative flex-1 flex items-center justify-center font-medium transition-all duration-300 overflow-hidden"
             style={{
               height: "100%",
-              borderRadius: !isDating ? "clamp(36px, 3.594vw, 69px)" : "clamp(8px, 0.625vw, 12px)",
+              borderRadius: "clamp(28px, 2.8vw, 54px)",
               background: !isDating ? "#FBE1EC" : "transparent",
               color: !isDating ? "#994264" : "#557A86",
               fontSize: "clamp(16px, 1.563vw, 30px)",
               lineHeight: "clamp(24px, 2.188vw, 42px)",
               boxShadow: !isDating
-                ? "0px 15px 22.5px rgba(0,0,0,0.1), 0px 6px 9px rgba(0,0,0,0.1)"
+                ? "0px 15px 22.5px -4.5px rgba(0,0,0,0.1)"
                 : "none",
             }}
           >
-            Couple
+            {!isDating && (
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  filter: "url(#noise-find)",
+                  backgroundColor: "transparent",
+                  mixBlendMode: "overlay",
+                  borderRadius: "inherit",
+                }}
+              />
+            )}
+            <span className="relative z-10">Couple</span>
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab("dating");
+              setExpanded(false);
+            }}
+            className="relative flex-1 flex items-center justify-center font-medium transition-all duration-300 overflow-hidden"
+            style={{
+              height: "100%",
+              borderRadius: "clamp(28px, 2.8vw, 54px)",
+              background: isDating ? "#557A86" : "transparent",
+              color: isDating ? "#F4F3F1" : "#557A86",
+              fontSize: "clamp(16px, 1.563vw, 30px)",
+              lineHeight: "clamp(24px, 2.188vw, 42px)",
+              boxShadow: isDating
+                ? "0px 15px 22.5px -4.5px rgba(0,0,0,0.15)"
+                : "none",
+            }}
+          >
+            {/* Noise on active dating button */}
+            {isDating && (
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  filter: "url(#noise-find)",
+                  backgroundColor: "transparent",
+                  mixBlendMode: "overlay",
+                  borderRadius: "inherit",
+                }}
+              />
+            )}
+            <span className="relative z-10">Dating</span>
           </button>
         </div>
       </div>
 
-      {/* Placeholder image — absolute, bleeds from top into content area */}
-      <div
-        className="hidden lg:block absolute"
-        style={{
-          width: "45%",
-          aspectRatio: "1",
-          left: 0,
-          top: expanded ? "50%" : "clamp(80px, 7.813vw, 150px)",
-          transform: expanded ? "translateY(-50%)" : undefined,
-          transition: "top 0.4s ease, transform 0.4s ease",
-          mixBlendMode: isDating ? "luminosity" : undefined,
-        }}
-      >
-        <img
-          src={isDating ? "/images/dating-placeholder.png" : "/images/couple-placeholder.png"}
-          alt={isDating ? "Dating mode illustration" : "Couple mode illustration"}
-          className="w-full h-full object-cover"
-        />
-        <p
-          className="text-white-smoke text-center uppercase font-normal absolute left-1/2 -translate-x-1/2"
+      {/* Dating illustration — desktop, collapsed */}
+      {isDating && !expanded && (
+        <div
+          className="hidden lg:flex absolute items-end justify-center pointer-events-none"
           style={{
-            fontSize: "clamp(16px, 1.591vw, 30.55px)",
-            lineHeight: "clamp(24px, 2.188vw, 42px)",
-            bottom: "10%",
+            left: "0",
+            width: "52%",
+            bottom: "clamp(20px, 3vw, 60px)",
+            zIndex: 1,
           }}
         >
-          placeholder
-        </p>
-      </div>
+          <img
+            src="/images/IMG_0558-1.webp"
+            alt="Dating mode illustration"
+            draggable={false}
+            className="pointer-events-none select-none"
+            style={{
+              width: "clamp(280px, 28vw, 540px)",
+              height: "auto",
+              userSelect: "none",
+            }}
+          />
+        </div>
+      )}
 
-      {/* Mobile image — in flow */}
+      {/* Dating illustration — desktop, expanded */}
+      {isDating && expanded && (
+        <div
+          className="hidden lg:flex absolute justify-center pointer-events-none"
+          style={{
+            left: "0",
+            width: "52%",
+            top: "55%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <img
+            src="/images/IMG_0558-1.webp"
+            alt="Dating mode illustration"
+            draggable={false}
+            className="pointer-events-none select-none"
+            style={{
+              width: "clamp(280px, 28vw, 540px)",
+              height: "auto",
+              userSelect: "none",
+            }}
+          />
+        </div>
+      )}
+
+      {/* Couple illustration — desktop, collapsed */}
+      {!isDating && !expanded && (
+        <div
+          className="hidden lg:flex absolute items-end justify-center pointer-events-none"
+          style={{
+            left: "0",
+            width: "52%",
+            bottom: "-27.5%",
+            zIndex: 1,
+          }}
+        >
+          <img
+            src="/images/IMG_0558-2.webp"
+            alt="Couple mode illustration"
+            draggable={false}
+            className="pointer-events-none select-none"
+            style={{
+              width: "clamp(280px, 28vw, 540px)",
+              height: "auto",
+              userSelect: "none",
+            }}
+          />
+        </div>
+      )}
+
+      {/* Couple illustration — desktop, expanded */}
+      {!isDating && expanded && (
+        <div
+          className="hidden lg:flex absolute justify-center pointer-events-none"
+          style={{
+            left: "0",
+            width: "52%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+          }}
+        >
+          <img
+            src="/images/IMG_0558-2.webp"
+            alt="Couple mode illustration"
+            draggable={false}
+            className="pointer-events-none select-none"
+            style={{
+              width: "clamp(280px, 28vw, 540px)",
+              height: "auto",
+              userSelect: "none",
+            }}
+          />
+        </div>
+      )}
+
+      {/* Mode illustration — mobile, in flow */}
       <div
-        className="lg:hidden relative mx-auto"
+        className="lg:hidden flex justify-center"
         style={{
-          width: "clamp(240px, 60vw, 400px)",
-          aspectRatio: "1",
           marginTop: "clamp(16px, 2vw, 32px)",
         }}
       >
         <img
-          src={isDating ? "/images/dating-placeholder.png" : "/images/couple-placeholder.png"}
+          src={isDating ? "/images/IMG_0558-1.webp" : "/images/IMG_0558-2.webp"}
           alt={isDating ? "Dating mode illustration" : "Couple mode illustration"}
-          className="w-full h-full object-cover"
+          draggable={false}
+          className="pointer-events-none select-none"
           style={{
-            mixBlendMode: isDating ? "luminosity" : "normal",
+            width: "clamp(200px, 50vw, 340px)",
+            height: "auto",
+            userSelect: "none",
           }}
         />
-        <p
-          className="text-white-smoke text-center uppercase font-normal absolute left-1/2 -translate-x-1/2"
-          style={{
-            fontSize: "clamp(16px, 1.591vw, 30.55px)",
-            lineHeight: "clamp(24px, 2.188vw, 42px)",
-            bottom: "10%",
-          }}
-        >
-          placeholder
-        </p>
       </div>
 
       {/* Text content — right side on desktop */}
       <div
-        className="flex flex-col items-start"
+        className="relative z-10 flex flex-col items-start"
         style={{
           gap: "clamp(16px, 1.25vw, 24px)",
           maxWidth: "clamp(300px, 31.198vw, 599px)",
@@ -232,10 +352,9 @@ export default function FindModeSection() {
             {isDating ? (
               <>
                 <p style={{ marginBottom: "clamp(16px, 1.25vw, 24px)" }}>
-                  Dating Mode is designed for people seeking connection with clarity
-                  and intention. It supports discovering compatibility beyond surface
-                  attraction, helping users navigate dating with more awareness and
-                  less noise.
+                  For those who are done swiping into a void. Dating Mode helps you
+                  find someone worth choosing, by understanding what you actually
+                  need before you find it.
                 </p>
                 <p>
                   The focus is on relevance, shared direction, and meaningful
@@ -332,5 +451,7 @@ export default function FindModeSection() {
           </button>
         </div>
     </section>
+
+    </div>
   );
 }
