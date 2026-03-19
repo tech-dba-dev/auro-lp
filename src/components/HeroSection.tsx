@@ -33,6 +33,7 @@ export default function HeroSection() {
           </p>
         </div>
 
+        {/* Store buttons hidden for now
         <div className="flex flex-row items-center gap-3">
           <a
             href="#"
@@ -61,6 +62,7 @@ export default function HeroSection() {
             </div>
           </a>
         </div>
+        */}
       </div>
 
       {/* ===== DESKTOP (>= 1024px) ===== */}
@@ -124,9 +126,8 @@ export default function HeroSection() {
           </p>
         </div>
 
-        {/* Store buttons — 254×76 at 1920px, scaled */}
+        {/* Store buttons hidden for now
         <div className="flex items-center" style={{ gap: "clamp(10px, 1.011vw, 19.417px)" }}>
-          {/* Google Play */}
           <a
             href="#"
             className="bg-white shrink-0 hover:opacity-90 transition-opacity flex items-center justify-center overflow-hidden"
@@ -145,7 +146,6 @@ export default function HeroSection() {
               <img alt="Google Play" src="/images/google-play-text.svg" style={{ width: "clamp(90px, 7.343vw, 140.994px)", height: "clamp(18px, 1.492vw, 28.623px)" }} />
             </div>
           </a>
-          {/* App Store */}
           <a
             href="#"
             className="bg-white shrink-0 hover:opacity-90 transition-opacity flex items-center justify-center overflow-hidden"
@@ -165,6 +165,7 @@ export default function HeroSection() {
             </div>
           </a>
         </div>
+        */}
       </div>
     </section>
   );

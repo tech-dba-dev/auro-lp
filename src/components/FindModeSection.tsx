@@ -331,13 +331,11 @@ export default function FindModeSection() {
         />
       </div>
 
-      {/* Text content — right side on desktop */}
+      {/* Text content — right side on desktop, centered on mobile */}
       <div
-        className="relative z-10 flex flex-col items-start"
+        className="find-mode-text relative z-10 flex flex-col items-start"
         style={{
           gap: "clamp(16px, 1.25vw, 24px)",
-          maxWidth: "clamp(300px, 31.198vw, 599px)",
-          marginLeft: "52%",
           marginTop: "clamp(30px, 7.292vw, 140px)",
         }}
       >
